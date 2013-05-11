@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>SquishIt.TypeScript</id>
+    <version>0.9.3-beta2</version>
+    <authors>fuzeman</authors>
+    <owners>fuzeman</owners>
+    <projectUrl>https://github.com/fuzeman/SquishIt</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds TypeScript processing capability to SquishIt.</description>
+    <dependencies>
+      <dependency id="SquishIt" version="0.9.3-beta2" />
+      <dependency id="fmTypeScriptCompiler" version="0.8.3-alpha" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\SquishIt.TypeScript\bin\Release\SquishIt.TypeScript.dll" target="lib\SquishIt.TypeScript.dll" />
+  </files>
+</package>
