@@ -17,3 +17,7 @@ SquishItAspNetMvcTest/templates/templates_*
 *.squishit.debug.css
 *.squishit.debug.js
 SquishItAspNetMvcTest/output/
+_UpgradeReport_Files
+/Backup
+*.DotSettings
+UpgradeLog*

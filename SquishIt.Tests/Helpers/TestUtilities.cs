@@ -34,6 +34,16 @@ namespace SquishIt.Tests.Helpers
             return contents.Replace("\r\n", "\n");
         }
 
+        public static string TrimLines(string contents)
+        {
+            var result = new StringBuilder();
+            foreach (string line in contents.Split('\n'))
+            {
+                result.Append(line.Trim() + '\n');
+            }
+            return result.ToString();
+        }
+
         public static string CreateFile(string path, string contents)
         {
             (new FileInfo(path)).Directory.Create();
