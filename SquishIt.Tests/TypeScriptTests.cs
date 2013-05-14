@@ -47,7 +47,7 @@ namespace SquishIt.Tests
                         "return \"Hello, \" + this.greeting;\n" +
                     "};\n" +
                     "return Greeter;\n" +
-                "})();</script>\n\n",
+                "})();\n</script>\n\n",
                 TestUtilities.TrimLines(TestUtilities.NormalizeLineEndings(tag)));
         }
     }
