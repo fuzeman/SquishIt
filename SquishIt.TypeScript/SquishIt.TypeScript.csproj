@@ -68,7 +68,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="TypeScriptCompiler">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\fmTypeScriptCompiler.0.8.7-alpha\lib\net35\x86\TypeScriptCompiler.dll</HintPath>
+      <HintPath>..\packages\fmTypeScriptCompiler.0.8.8-alpha\lib\net35\x86\TypeScriptCompiler.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
