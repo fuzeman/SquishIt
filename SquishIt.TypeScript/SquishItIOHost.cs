@@ -9,17 +9,34 @@ namespace SquishIt.TypeScript
     {
         public const string INTERNAL_ABSOLUTE_HEAD = "internal://";
 
-        public Dictionary<string, string> Internal { get; set; } 
+        private readonly Dictionary<string, string> _internal;
 
         public SquishItIOHost(string basePath) : base(basePath)
         {
-            Internal = new Dictionary<string, string>();
+            _internal = new Dictionary<string, string>();
+        }
+
+        /// <summary>
+        /// Add internal file
+        /// </summary>
+        /// <param name="filename">File Name</param>
+        /// <param name="content">File Contents</param>
+        public void Add(string filename, string content)
+        {
+            _internal.Add(INTERNAL_ABSOLUTE_HEAD + filename.Replace("\\", "/"), content);
         }
 
         private bool IsInternal(string filename)
         {
             return filename.StartsWith(INTERNAL_ABSOLUTE_HEAD) &&
-                Internal.ContainsKey(filename);
+                _internal.ContainsKey(filename.Replace("\\", "/"));
+        }
+
+        public override string DirectoryName(string path)
+        {
+            // Jump out of internal:// if we are looking up the directory name
+            return base.DirectoryName(path.Replace("\\", "/").StartsWith(INTERNAL_ABSOLUTE_HEAD) ?
+                path.Substring(INTERNAL_ABSOLUTE_HEAD.Length) : path);
         }
 
         public override string ResolvePath(string path)
@@ -34,7 +51,7 @@ namespace SquishIt.TypeScript
 
         public override string ReadFile(string path)
         {
-            return IsInternal(path) ? Internal[path] : base.ReadFile(path);
+            return IsInternal(path) ? _internal[path] : base.ReadFile(path);
         }
 
         public override bool IsFile(string path)
